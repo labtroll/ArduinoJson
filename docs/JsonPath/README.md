@@ -69,16 +69,16 @@
 }
 ```
 
-| JSONPath | Result |
-| :--      | :---   |
-| `$.store.book[*].author` | the authors of all books in the store
-| `$..author` |	all authors
-| `$.store.*` |	all things in store, which are some books and a red bicycle.
-| `$.store..price| the price of everything in the store.
-| `$..book[2]` |	the third book
-| `$..book[(@.length-1)]`<br/>`$..book[-1:]` | the last book in order.
-| `$..book[0,1]`<br/>`$..book[:2]` | the first two books
-| `$..book[?(@.isbn)]` | filter all books with isbn number
-| `$..book[?(@.price<10)]` | filter all books cheapier than 10
-| `$..*` | All members of JSON structure.
+| JSONPath | Results | Description |
+| :--      | :---   | :-- |
+| `$.store.book[*].author` | `["Nigel Rees", "Evelyn Waugh", "Herman Melville", "J. R. R. Tolkien"]` | the authors of all books in the store |
+| `$..author` |	`["Nigel Rees", "Evelyn Waugh", "Herman Melville", "J. R. R. Tolkien"]` | all authors |
+| `$.store.*` |	:warning: | all things in store, which are some books and a red bicycle. |
+| `$.store..price` | `[8.95, 12.99, 8.99, 22.99, 19.95]` | the price of everything in the store. |
+| `$..book[2]` |	`{"category": "fiction", "author": "Herman Melville", ...}` | the third book |
+| `$..book[(@.length-1)]`<br/>`$..book[-1:]` | `{"category": "fiction", "author": "J. R. R. Tolkien", ...}` | the last book in order. |
+| `$..book[0,1]`<br/>`$..book[:2]` | `[{"category": "reference", "author": "Nigel Rees", ...},`<br/>`{"category": "fiction", "author": "Evelyn Waugh", ...}]` | the first two books |
+| `$..book[?(@.isbn)]` | `[{"category": "fiction", "author": "Herman Melville", ... },`<br/>`{"category": "fiction", "author": "J. R. R. Tolkien", ...}]` | filter all books with isbn number |
+| `$..book[?(@.price<10)]` | `[{"category": "reference", ..., "price": 8.95}`,<br/>`{"category": "fiction", ..., "price": 8.99}]` | filter all books cheapier than 10 |
+| `$..*` | :warning: | All members of JSON structure. |
 
