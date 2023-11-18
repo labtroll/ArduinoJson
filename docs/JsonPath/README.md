@@ -14,7 +14,9 @@
 
 ## JsonPath API
 
-## JsonPath Syntax Support Priority
+## JsonPath Expressions
+
+Reference: [JSONPath expressions](https://goessner.net/articles/JsonPath/index.html#e2)
 
 * "Root member": `$`
 * Child Operator
@@ -31,9 +33,30 @@
 * Filter expression (`?()`): :warning:
 * Script Expression (`()`): :warning:
 
+## JsonPath API Implementation
+
+Reference: [JSONPath implementation](https://goessner.net/articles/JsonPath/index.html#e4)
+
+* **class JsonPath**
+  * **jsonPath(obj, expr [, args])**
+    * **Parameters**
+      * **obj**: (object|array)  
+        Object representing the JSON structure.
+      * **expr** (string)  
+        JSONPath expression string.
+      * **args** (object|undefined)  
+        Object controlling path evaluation and output. Currently only one member is supported.
+      * **args.resultType** ("VALUE"|"PATH")
+        causes the result to be either matching values (default) or normalized path expressions.
+    * **Return Value**
+      * **(array|false)**  
+        :warning: alternate "no match" return value (possibly zero length array).  
+        Array holding either values or normalized path expressions matching the input path expression, which can be used for lazy evaluation. false in case of no match.
+   
+
 ## JsonPath Examples
 
-(from [JSONPath examples](https://goessner.net/articles/JsonPath/index.html#e3))
+Reference: [JSONPath examples](https://goessner.net/articles/JsonPath/index.html#e3)
 
 ```JSON
 { "store": {
