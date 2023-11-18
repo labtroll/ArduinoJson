@@ -163,4 +163,18 @@ Reference: [JSONPath examples](https://goessner.net/articles/JsonPath/index.html
 | `$..book[?(@.price<10)]` | `[{"category": "reference", ..., "price": 8.95}`,<br/>`{"category": "fiction", ..., "price": 8.99}]` | filter all books cheapier than 10 |
 | `$..*` | :warning: | All members of JSON structure. |
 
+### Tests
+
+Tests made using [JSONPath Online Evaluator](https://jsonpath.com/)
+
+
+| V/X | Expression | Expected | Got | 
+| :-- | :--        | :--      | :-- | 
+| :x:   | `$..[price,color]` | `[]` | `[8.95, 12.99, 8.99, 22.99, 19.95, "red"]` |
+| :x: | `$..['price','color']` | `[8.95, 12.99, 8.99, 22.99, 19.95, "red"]` | `[]` |
+| :white_check_mark: | `$.[?(@.isbn)]` | `[{...}, {...}]` | `[{...}, {...}]` |
+| :x: | `$.[?(@..isbn)]` | `[{...}, {...}]` | `[]` |
+
+
+
 [^1]: https://github.com/json-path/JsonPath#operators
