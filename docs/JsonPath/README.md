@@ -2,8 +2,11 @@
 
 ## Resources
 
-* [`JsonPath` standard](https://goessner.net/articles/JsonPath/)
-* Existing issues relating to `JsonPath`
+* [JSONPath Syntax](https://support.smartbear.com/alertsite/docs/monitors/api/endpoint/jsonpath.html)
+* [`JsonPath` by Goessner](https://goessner.net/articles/JsonPath/) (JS/PHP implementation)
+* [`jayway` – a Java DSL for reading JSON documents](https://github.com/json-path/JsonPath) (Java port of Goessner's implementation)
+* [JSONPath Online Evaluator - jsonpath.com](https://jsonpath.com/)
+* Existing `ArduinoJson` issues relating to `JsonPath`
   * bblanchon/ArduinoJson#821
   * bblanchon/ArduinoJson#1505
   * bblanchon/ArduinoJson#1904
@@ -22,16 +25,30 @@ Reference: [JSONPath expressions](https://goessner.net/articles/JsonPath/index.h
 * Child Operator
   * Dot notation (`.`): `$.store.book[0].title`
   * Bracket notation (`[]`): `$['store']['book'][0]['title']`
-* Recursive Descent: `$store..title`
+* Recursive Descent: `$.store..title`
 * Wildcard (`*`)
   * Member names: `$store.book[0].*`
   * Array indices: `$.store.book[*].title`
 * Array
   * Subscript (`[]`): `book[1]`
-  * Alternate names or array indices ((`[,]`): :warning:
-  * Slice (`[start:end:step]`): :warning:
-* Filter expression (`?()`): :warning:
-* Script Expression (`()`): :warning:
+  * Indices (`[,]`)  
+    * `[index1,index2,…]`  
+      Selects array elements with the specified indexes
+  * Slice (`[:]`)  
+    * `[start:]`  
+       Selects all elements from start until the end of the array
+    * `[start:end]`  
+      Selects array elements from the start index and up to, but not including, end index
+    * `[start:end:step]` [_goessner_](https://goessner.net/articles/JsonPath/index.html#e2)
+      [Array slice syntax proposal](http://developer.mozilla.org/es4/proposals/slice_syntax.html) `[start:end:step]` from [ECMASCRIPT 4](http://www.ecmascript.org/)
+    * `[:n]`  
+      Selects the first n elements of the array
+    * `[-n:]`  
+      Selects the last n elements of the array
+* Filter expression (`?()`)  
+  Selects all elements in an object or array that match the specified filter
+* Script Expression (`()`)  
+  Script expressions can be used instead of explicit property names or indexes. An example is `[(@.length-1)]` which selects the last item in an array. Here, length refers to the length of the current array rather than a JSON field named length.
 
 ## JsonPath API Implementation
 
