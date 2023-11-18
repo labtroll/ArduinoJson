@@ -21,7 +21,7 @@
 
 Reference: [JSONPath expressions](https://goessner.net/articles/JsonPath/index.html#e2)
 
-* "Root member": `$`
+* Root member (`$`)
 * Child Operator
   * Dot notation (`.`): `$.store.book[0].title`
   * Bracket notation (`[]`): `$['store']['book'][0]['title']`
