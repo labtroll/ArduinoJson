@@ -21,17 +21,17 @@
 
 Reference: [JSONPath expressions](https://goessner.net/articles/JsonPath/index.html#e2)
 
-* Root member (`$`)
-* Child Operator
+* Root (`$`)
+* Child
   * Dot notation (`.`): `$.store.book[0].title`
   * Bracket notation (`[]`): `$['store']['book'][0]['title']`
     * `['<name1>' (, '<name2>')]`: `$.['store']['book', 'bicycle']['price']`  
       Bracket-notated child or children[^1]
-* Recursive Descent (`..`): `$.store..title`
+* Descendent (`..`): `$.store..title`
 * Wildcard (`*`)
   * Member names: `$.store.book[0].*`
   * Array indices: `$.store.book[*].title`
-* Array
+* Array ...
   * Subscript (`[]`): `book[1]`
   * Indices (`[,]`)  
     * `[index1 (, index2)]`:  `book[1, 2, 4]`  
