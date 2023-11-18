@@ -25,15 +25,17 @@ Reference: [JSONPath expressions](https://goessner.net/articles/JsonPath/index.h
 * Child Operator
   * Dot notation (`.`): `$.store.book[0].title`
   * Bracket notation (`[]`): `$['store']['book'][0]['title']`
-* Recursive Descent: `$.store..title`
+    * `['<name1>' (, '<name2>')]`: `$.['store']['book', 'bicycle']['price']  
+      Bracket-notated child or children[^1]
+* Recursive Descent (`..`): `$.store..title`
 * Wildcard (`*`)
-  * Member names: `$store.book[0].*`
+  * Member names: `$.store.book[0].*`
   * Array indices: `$.store.book[*].title`
 * Array
   * Subscript (`[]`): `book[1]`
   * Indices (`[,]`)  
-    * `[index1,index2,…]`  
-      Selects array elements with the specified indexes
+    * `[index1 (, index2)]`:  `book[1, 2, 4]`  
+      Selects array elements with the specified indices
   * Slice (`[:]`)  
     * `[start:]`  
        Selects all elements from start until the end of the array
@@ -46,7 +48,8 @@ Reference: [JSONPath expressions](https://goessner.net/articles/JsonPath/index.h
     * `[-n:]`  
       Selects the last n elements of the array
 * Filter expression (`?()`)  
-  Selects all elements in an object or array that match the specified filter
+  Selects all elements in an object or array that match the specified filter.  
+  An expression that specifies just a property name, such as `[?(@.isbn)]`, matches all items that have this property, regardless of the value.
 * Script Expression (`()`)  
   Script expressions can be used instead of explicit property names or indexes. An example is `[(@.length-1)]` which selects the last item in an array. Here, length refers to the length of the current array rather than a JSON field named length.
 
@@ -122,3 +125,4 @@ Reference: [JSONPath examples](https://goessner.net/articles/JsonPath/index.html
 | `$..book[?(@.price<10)]` | `[{"category": "reference", ..., "price": 8.95}`,<br/>`{"category": "fiction", ..., "price": 8.99}]` | filter all books cheapier than 10 |
 | `$..*` | :warning: | All members of JSON structure. |
 
+[^1]: https://github.com/json-path/JsonPath#operators
