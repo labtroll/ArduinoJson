@@ -53,7 +53,7 @@ Reference: [JSONPath expressions](https://goessner.net/articles/JsonPath/index.h
 * Script Expression (`()`)  
   Script expressions can be used instead of explicit property names or indexes. An example is `[(@.length-1)]` which selects the last item in an array. Here, length refers to the length of the current array rather than a JSON field named length.
 
-## JsonPath Functions
+## JsonPath Functions and Operators
 
 Reference: [JsonPath](https://github.com/json-path/JsonPath#functions)
 
