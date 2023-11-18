@@ -25,7 +25,7 @@ Reference: [JSONPath expressions](https://goessner.net/articles/JsonPath/index.h
 * Child Operator
   * Dot notation (`.`): `$.store.book[0].title`
   * Bracket notation (`[]`): `$['store']['book'][0]['title']`
-    * `['<name1>' (, '<name2>')]`: `$.['store']['book', 'bicycle']['price']  
+    * `['<name1>' (, '<name2>')]`: `$.['store']['book', 'bicycle']['price']`  
       Bracket-notated child or children[^1]
 * Recursive Descent (`..`): `$.store..title`
 * Wildcard (`*`)
