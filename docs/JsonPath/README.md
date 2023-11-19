@@ -12,9 +12,6 @@
   * bblanchon/ArduinoJson#1505
   * bblanchon/ArduinoJson#1904
   * bblanchon/ArduinoJson#1904 [`element.element` support code fragment](https://github.com/bblanchon/ArduinoJson/issues/1904#issuecomment-1498614172)
-* JsonPath Syntax General
-  * JSONPath square brackets operate on the _object_ or _array_ addressed by the previous path fragment
-  * Indices always start by 0
 
 ## JsonPath API
 
@@ -22,17 +19,22 @@
 
 Reference: [JSONPath expressions](https://goessner.net/articles/JsonPath/index.html#e2)
 
+* JSONPath square brackets operate on the _object_ or _array_ addressed by the previous path fragment
+* Indices always start by 0
+
+## JsonPath References
 * Root (`$`)
-  * Note: Filters can also use $ to refer to the properties outside of the current object: `$.store.book[?(@.price < $.expensive)]`
+  Refers to the root node of the JsonDocument.
+  Filters can use `$` to refer to the properties outside of the current object: `$.store.book[?(@.price < $.expensive)]`
 * Child
   * Dot notation (`.`): `$.store.book[0].title`
   * Bracket notation (`[]`): `$['store']['book'][0]['title']`
     * `['<name1>' (, '<name2>')]`: `$.['store']['book', 'bicycle']['price']`  
       Bracket-notated child or children[^1]
-* Descendent (`..`): `$.store..title`
+* Descendent (`..`): `$..title`
 * Wildcard (`*`)
-  * Member names: `$.store.book[0].*`
-  * Array indices: `$.store.book[*].title`
+  * Object members: `$.*.book`, `$.['*'].book` (:question:)
+  * Array indices: `$.store.book[*]`
 * Array ...
   * Subscript (`[]`): `book[1]`
   * Indices (`[,]`)  
