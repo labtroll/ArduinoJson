@@ -106,9 +106,9 @@ Inspired by https://github.com/json-path/JsonPath
   * **`static const JsonPath compile(const char* jsonPathExpression)`**
   * **`const JsonVariant query(JsonDocument document, const JsonVariant context = nullptr)`**  
     Returns a JsonVariant containing either a JsonObject or a JsonArray with the matched values. An empty JsonArray is indicative of no matches.  
-  * **`const vector<JsonPath> queryPaths(JsonDocument document, const JsonVariant context = nullptr)`**  
+  * **`const vector<JsonPath> queryPaths(const JsonDocument document, const JsonVariant context = nullptr)`**  
     Returns a Vector of JsonPath instances referencing the matched nodes. An empty Vector is indicative of no matches.
-  * **`boolean const set(const JsonVariant context, const JsonVariant value)`**
+  * **`boolean const set(const JsonDocument document, const JsonVariant value, const JsonVariant context = nullptr)`**  
     Sets the value in context, referenced by this JsonPath to value.  
     Returns true if value was set, false otherwise.
   * **`const boolean isDefinite()`**
