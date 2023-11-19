@@ -2,10 +2,11 @@
 
 ## Resources
 
-* [JSONPath Syntax](https://support.smartbear.com/alertsite/docs/monitors/api/endpoint/jsonpath.html)
-* [`JsonPath` by Goessner](https://goessner.net/articles/JsonPath/) (JS/PHP implementation)
-* [`jayway` – a Java DSL for reading JSON documents](https://github.com/json-path/JsonPath) (Java port of Goessner's implementation)
-* [JSONPath Online Evaluator - jsonpath.com](https://jsonpath.com/)
+* [JSONPath: Query expressions for JSON](https://datatracker.ietf.org/wg/jsonpath/documents/) (the closest thing we get to a specification)
+  * [`JsonPath` by Goessner](https://goessner.net/articles/JsonPath/) (seems to be the closest thing to a reference implementation)
+  * [`jayway` – a Java DSL for reading JSON documents](https://github.com/json-path/JsonPath) (Java port of Goessner's implementation)
+  * [JSONPath Syntax](https://support.smartbear.com/alertsite/docs/monitors/api/endpoint/jsonpath.html) (a random syntax specification)
+  * [JSONPath Online Evaluator - jsonpath.com](https://jsonpath.com/) (based on [node.js jsonpath-plus](https://www.npmjs.com/package/jsonpath-plus) which is not maintained and doesn't comply with the above)
 * Existing `ArduinoJson` issues relating to `JsonPath`
   * bblanchon/ArduinoJson#821
   * bblanchon/ArduinoJson#1505
@@ -22,6 +23,7 @@
 Reference: [JSONPath expressions](https://goessner.net/articles/JsonPath/index.html#e2)
 
 * Root (`$`)
+  * Note: Filters can also use $ to refer to the properties outside of the current object: `$.store.book[?(@.price < $.expensive)]`
 * Child
   * Dot notation (`.`): `$.store.book[0].title`
   * Bracket notation (`[]`): `$['store']['book'][0]['title']`
