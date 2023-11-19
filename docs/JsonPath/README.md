@@ -98,26 +98,24 @@ Filters are logical expressions used to filter arrays. A typical filter would be
 | `size`	|	size of left (array or string) should match right
 | `empty`	|	left (array or string) should be empty
 
-## JsonPath API Implementation
+## JsonPath API
 
-Reference: [JSONPath implementation](https://goessner.net/articles/JsonPath/index.html#e4)
+Inspired by https://github.com/json-path/JsonPath
 
-* **class JsonPath**
-  * **jsonPath(obj, expr [, args])**
-    * **Parameters**
-      * **obj**: (object|array)  
-        Object representing the JSON structure.
-      * **expr** (string)  
-        JSONPath expression string.
-      * **args** (object|undefined)  
-        Object controlling path evaluation and output. Currently only one member is supported.
-      * **args.resultType** ("VALUE"|"PATH")
-        causes the result to be either matching values (default) or normalized path expressions.
-    * **Return Value**
-      * **(array|false)**  
-        :warning: alternate "no match" return value (possibly zero length array).  
-        Array holding either values or normalized path expressions matching the input path expression, which can be used for lazy evaluation. false in case of no match.
-   
+* **`class JsonPath`**
+  * **`static const JsonPath compile(const char* jsonPathExpression)`**
+  * **`const JsonVariant query(JsonDocument document, const JsonVariant context = nullptr)`**  
+    Returns a JsonVariant containing either a JsonObject or a JsonArray with the matched values. An empty JsonArray is indicative of no matches.  
+  * **`const vector<JsonPath> queryPaths(JsonDocument document, const JsonVariant context = nullptr)`**  
+    Returns a Vector of JsonPath instances referencing the matched nodes. An empty Vector is indicative of no matches.
+  * **`boolean const set(const JsonVariant context, const JsonVariant value)`**
+    Sets the value in context, referenced by this JsonPath to value.  
+    Returns true if value was set, false otherwise.
+  * **`const boolean isDefinite()`**
+  * **`const char* getPathBracketNotation()`**
+  * **`const char* getPathDotNotation()`**
+  * **`static const JsonVariant query(const char* jsonPathExpression, const char* jsonDocument, JsonResultType = JSON_VALUE)`**  
+    Convenience function, mostly for documentation and example use.  
 
 ## JsonPath Examples
 
