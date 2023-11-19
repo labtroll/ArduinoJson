@@ -111,6 +111,8 @@ Inspired by https://github.com/json-path/JsonPath
   * **`boolean const set(const JsonDocument document, const JsonVariant value, const JsonVariant context = nullptr)`**  
     Sets the value in context, referenced by this JsonPath to value.  
     Returns true if value was set, false otherwise.
+  * **`boolean const delete(const JsonDocument document)`**  
+    Deletes any elements in document referenced by this JsonPath.
   * **`const boolean isDefinite()`**
   * **`const char* getPathBracketNotation()`**
   * **`const char* getPathDotNotation()`**
