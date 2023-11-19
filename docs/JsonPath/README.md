@@ -6,6 +6,9 @@
   * [`JsonPath` by Goessner](https://goessner.net/articles/JsonPath/) (seems to be the closest thing to a reference implementation)
   * [`jayway` – a Java DSL for reading JSON documents](https://github.com/json-path/JsonPath) (Java port of Goessner's implementation)
   * [JSONPath Syntax](https://support.smartbear.com/alertsite/docs/monitors/api/endpoint/jsonpath.html) (a random syntax specification)
+* Json Path online evaluators
+  * [JSONPath Expression Tester](https://jsonpath.curiousconcept.com/)
+    > JSONPath Tester allows users to choose between PHP implementations of JSONPath created by Stefan Gössner and Flow Communications' Stephen Frank.
   * [JSONPath Online Evaluator - jsonpath.com](https://jsonpath.com/) (based on [node.js jsonpath-plus](https://www.npmjs.com/package/jsonpath-plus) which is not maintained and doesn't comply with the above)
 * Existing `ArduinoJson` issues relating to `JsonPath`
   * bblanchon/ArduinoJson#821
