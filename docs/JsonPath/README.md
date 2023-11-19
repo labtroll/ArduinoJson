@@ -2,7 +2,7 @@
 
 ## Resources
 
-* [JSONPath: Query expressions for JSON](https://datatracker.ietf.org/wg/jsonpath/documents/) (the closest thing we get to a specification)
+* [JSONPath: Query expressions for JSON](https://datatracker.ietf.org/wg/jsonpath/documents/) ([html](https://www.ietf.org/archive/id/draft-ietf-jsonpath-base-21.html))(the closest thing we get to a specification)
   * [`JsonPath` by Goessner](https://goessner.net/articles/JsonPath/) (seems to be the closest thing to a reference implementation)
   * [`jayway` – a Java DSL for reading JSON documents](https://github.com/json-path/JsonPath) (Java port of Goessner's implementation)
   * [JSONPath Syntax](https://support.smartbear.com/alertsite/docs/monitors/api/endpoint/jsonpath.html) (a random syntax specification)
